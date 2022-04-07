@@ -10,14 +10,14 @@ use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Admin extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\User::class;
+    public static $model = \App\Models\Admin::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -55,8 +55,8 @@ class User extends Resource
             Text::make('Email')
                 ->sortable()
                 ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+                ->creationRules('unique:admins,email')
+                ->updateRules('unique:admins,email,{{resourceId}}'),
 
             Password::make('Password')
                 ->onlyOnForms()
