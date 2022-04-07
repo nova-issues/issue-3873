@@ -15,6 +15,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function boot()
     {
+        Nova::ignoreMigrations();
+
         parent::boot();
     }
 
